@@ -4508,11 +4508,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\SWD62ADanielBuhagiarEPHA\\Presentation\\Presentation.csproj",
+      "projectUniqueName": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Presentation.csproj",
       "projectName": "Presentation",
-      "projectPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\SWD62ADanielBuhagiarEPHA\\Presentation\\Presentation.csproj",
+      "projectPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Presentation.csproj",
       "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-      "outputPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\SWD62ADanielBuhagiarEPHA\\Presentation\\obj\\",
+      "outputPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4534,11 +4534,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\SWD62ADanielBuhagiarEPHA\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\SWD62ADanielBuhagiarEPHA\\DataAccess\\DataAccess.csproj"
+            "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\DataAccess\\DataAccess.csproj"
             },
-            "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\SWD62ADanielBuhagiarEPHA\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\SWD62ADanielBuhagiarEPHA\\Domain\\Domain.csproj"
+            "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Domain\\Domain.csproj"
             }
           }
         }
