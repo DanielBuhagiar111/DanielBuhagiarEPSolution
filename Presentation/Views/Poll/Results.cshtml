@@ -1,0 +1,71 @@
+﻿@model List<Domain.Models.Poll>
+
+<div class="container">
+    <h2>All Poll Results</h2>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    @foreach (var poll in Model)
+    {
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <div style="width: 450px;">
+                <canvas id="pollChart_@poll.Id"></canvas>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var ctx_@poll.Id = document.getElementById('pollChart_@poll.Id').getContext('2d');
+                var myChart_@poll.Id = new Chart(ctx_@poll.Id, {
+                    type: 'pie',
+                    data: {
+                        labels: ['@poll.Option1Text', '@poll.Option2Text', '@poll.Option3Text'],
+                        datasets: [{
+                            data: [@poll.Option1VotesCount, @poll.Option2VotesCount, @poll.Option3VotesCount],
+                            backgroundColor: [
+                                'rgba(0, 123, 255)',
+                                'rgba(255, 193, 7)',
+                                'rgba(220, 53, 69)'
+                            ],
+                            borderColor: 'rgba(0, 0, 0, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            },
+                            title: {
+                                display: true,
+                                text: '@poll.Title',
+                                font: {
+                                    size: 30
+                                }
+                            },
+                            datalabels: {
+                                formatter: (value, ctx) => {
+                                    let sum = 0;
+                                    let dataArr = ctx.chart.data.datasets[0].data;
+                                    dataArr.map(data => {
+                                        sum += data;
+                                    });
+                                    let percentage = (value * 100 / sum).toFixed(2) + "%";
+                                    return percentage;
+                                },
+                                color: '#fff',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        }
+                    },
+                    plugins: [ChartDataLabels]
+                });
+            });
+        </script>
+    }
+</div>

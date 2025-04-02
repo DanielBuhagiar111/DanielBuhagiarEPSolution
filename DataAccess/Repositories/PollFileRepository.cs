@@ -42,7 +42,11 @@ namespace DataAccess.Repositories
                     DateCreated = p.DateCreated
                 }).AsQueryable();
             }
-            else
+            else if (id == -1) // Results
+            {
+                return polls.AsQueryable();
+            }
+            else // Details
             {
                 return polls.Where(p => p.Id == id)
                     .Select(p => new PollDetailsDto

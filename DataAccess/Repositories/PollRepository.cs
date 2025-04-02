@@ -33,8 +33,12 @@ namespace DataAccess.Repositories
                         Title = p.Title,
                         DateCreated = p.DateCreated
                     });
-            } // Details
-            else
+            }
+            else if (id == -1) // Results
+            {
+                return _pollContext.Polls;
+            }
+            else // Details
             {
                 return _pollContext.Polls
                     .Where(p => p.Id == id)

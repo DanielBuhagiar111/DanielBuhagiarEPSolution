@@ -91,5 +91,19 @@ namespace Presentation.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult Results()
+        {
+            if (_dbRepository != null)
+            {
+                var sortedPolls = _dbRepository.GetPolls(-1).Cast<Poll>().OrderByDescending(p => p.DateCreated).ToList();
+                return View(sortedPolls);
+            }
+            else
+            {
+                var sortedPolls = _fileRepository.GetPolls(-1).Cast<Poll>().OrderByDescending(p => p.DateCreated).ToList();
+                return View(sortedPolls);
+            }
+        }
     }
 }
