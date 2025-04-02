@@ -1,0 +1,22 @@
+﻿@model Domain.Models.PollDetailsDto
+
+<div class="container">
+    <h2 class="text-center">@Model.Title</h2>
+    <p class="text-center mb-5">Created: @Model.DateCreated.ToString("yyyy-MM-dd HH:mm:ss")</p>
+
+    <form method="post" action="/Poll/Vote">
+        <input type="hidden" name="pollId" value="@Model.Id" />
+
+        <div class="row no-gutters h-100">
+            <div class="col-md-4 d-flex">
+                <button type="submit" name="chosenOption" value="1" class="btn btn-primary btn-block flex-grow-1">@Model.Option1Text</button>
+            </div>
+            <div class="col-md-4 d-flex">
+                <button type="submit" name="chosenOption" value="2" class="btn btn-warning btn-block flex-grow-1">@Model.Option2Text</button>
+            </div>
+            <div class="col-md-4 d-flex">
+                <button type="submit" name="chosenOption" value="3" class="btn btn-danger btn-block flex-grow-1">@Model.Option3Text</button>
+            </div>
+        </div>
+    </form>
+</div>
