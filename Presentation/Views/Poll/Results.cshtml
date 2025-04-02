@@ -8,9 +8,14 @@
 
     @foreach (var poll in Model)
     {
-        <div class="d-flex justify-content-center align-items-center flex-column">
-            <div style="width: 450px;">
-                <canvas id="pollChart_@poll.Id"></canvas>
+        <div class="col-12 mb-3">
+            <div class="card">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <p class="card-text text-muted">Created: @poll.DateCreated.ToString("yyyy-MM-dd HH:mm:ss")</p>
+                    <div>
+                        <canvas id="pollChart_@poll.Id" width="400" height="300"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -34,6 +39,7 @@
                     },
                     options: {
                         responsive: true,
+                        maintainAspectRatio: true,
                         plugins: {
                             legend: {
                                 display: true,
@@ -63,7 +69,7 @@
                             }
                         }
                     },
-                    plugins: [ChartDataLabels]
+
                 });
             });
         </script>

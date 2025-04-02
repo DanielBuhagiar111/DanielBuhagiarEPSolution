@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|solutionrelative:presentation\\views\\poll\\results.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|d:\\daniel\\.mcast stuffs\\level 6\\2nd year\\enterprise programming\\danielbuhagiarepsolution\\presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|solutionrelative:presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|d:\\daniel\\.mcast stuffs\\level 6\\2nd year\\enterprise programming\\danielbuhagiarepsolution\\presentation\\views\\poll\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|solutionrelative:presentation\\views\\poll\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,28 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Results.cshtml",
-              "DocumentMoniker": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Views\\Poll\\Results.cshtml",
-              "RelativeDocumentMoniker": "Presentation\\Views\\Poll\\Results.cshtml",
-              "ToolTip": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Views\\Poll\\Results.cshtml",
-              "RelativeToolTip": "Presentation\\Views\\Poll\\Results.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Views\\Poll\\Index.cshtml",
+              "RelativeDocumentMoniker": "Presentation\\Views\\Poll\\Index.cshtml",
+              "ToolTip": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Views\\Poll\\Index.cshtml",
+              "RelativeToolTip": "Presentation\\Views\\Poll\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-02T16:11:30.754Z",
+              "WhenOpened": "2025-04-02T16:16:20.241Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\appsettings.json",
-              "RelativeDocumentMoniker": "Presentation\\appsettings.json",
-              "ToolTip": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\appsettings.json",
-              "RelativeToolTip": "Presentation\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-02T16:11:04.371Z",
+              "DocumentIndex": 0,
+              "Title": "Results.cshtml",
+              "DocumentMoniker": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Views\\Poll\\Results.cshtml",
+              "RelativeDocumentMoniker": "Presentation\\Views\\Poll\\Results.cshtml",
+              "ToolTip": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Views\\Poll\\Results.cshtml*",
+              "RelativeToolTip": "Presentation\\Views\\Poll\\Results.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T16:15:47.613Z",
               "EditorCaption": ""
             }
           ]
