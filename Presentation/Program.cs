@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SWD62ADanielBuhagiarEPHA.Data; // Assuming this is where ApplicationDbContext is
-using DataAccess.DataContext; // Assuming this is where PollDbContext is
-using DataAccess.Repositories; // Assuming this is where PollRepository is
+using SWD62ADanielBuhagiarEPHA.Data; 
+using DataAccess.DataContext;
+using DataAccess.Repositories;
+using Presentation.Factories;
 
 namespace SWD62ADanielBuhagiarEPHA
 {
@@ -27,7 +28,7 @@ namespace SWD62ADanielBuhagiarEPHA
 
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddScoped<PollRepository>();
+            builder.Services.AddScoped<PollRepositoryFactory>();
 
             var app = builder.Build();
 

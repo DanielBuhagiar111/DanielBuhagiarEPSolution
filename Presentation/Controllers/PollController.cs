@@ -2,25 +2,42 @@
 using DataAccess.Repositories;
 using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.Factories;
 using System.Linq;
 
 namespace Presentation.Controllers
 {
     public class PollController : Controller
     {
+        private readonly PollRepository _dbRepository;
+        private readonly PollFileRepository _fileRepository;
 
-        private readonly PollRepository _pollRepository;
-
-        public PollController(PollRepository pollRepository)
+        public PollController(PollRepositoryFactory repositoryFactory, IConfiguration configuration)
         {
-            _pollRepository = pollRepository;
+            var repository = repositoryFactory.CreateRepository();
+
+            if (repository is PollRepository dbRepository)
+            {
+                _dbRepository = dbRepository;
+            }
+            else if (repository is PollFileRepository fileRepository)
+            {
+                _fileRepository = fileRepository;
+            }
         }
 
         public IActionResult Index()
         {
-            var sortedPolls = _pollRepository.GetPolls().Cast<PollListDto>().OrderByDescending(p => p.DateCreated).ToList();
-
-            return View(sortedPolls);
+            if (_dbRepository != null)
+            {
+                var sortedPolls = _dbRepository.GetPolls().Cast<PollListDto>().OrderByDescending(p => p.DateCreated).ToList();
+                return View(sortedPolls);
+            }
+            else
+            {
+                var sortedPolls = _fileRepository.GetPolls().Cast<PollListDto>().OrderByDescending(p => p.DateCreated).ToList();
+                return View(sortedPolls);
+            }
         }
 
         public IActionResult Create()
@@ -30,31 +47,49 @@ namespace Presentation.Controllers
 
         // Example of Method injection
         [HttpPost]
-        public IActionResult Create(Poll poll, [FromServices] PollRepository pollRepository)
+        public IActionResult Create(Poll poll, [FromServices] PollRepositoryFactory repositoryFactory)
         {
-            pollRepository.CreatePoll(poll);
+            var pollRepository = repositoryFactory.CreateRepository();
+
+            if (pollRepository is PollRepository dbRepository)
+            {
+                dbRepository.CreatePoll(poll);
+            }
+            else if (pollRepository is PollFileRepository fileRepository)
+            {
+                fileRepository.CreatePoll(poll);
+            }
+
             return RedirectToAction("Index");
         }
 
         public IActionResult Details(int id)
         {
-            var pollDetails = _pollRepository.GetPolls(id)
-                .Cast<PollDetailsDto>()
-                .FirstOrDefault();
-
-            if (pollDetails == null)
+            if (_dbRepository != null)
             {
-                return NotFound();
+                var pollDetails = _dbRepository.GetPolls(id).Cast<PollDetailsDto>().FirstOrDefault();
+                return View(pollDetails);
             }
-
-            return View(pollDetails);
+            else
+            {
+                var pollDetails = _fileRepository.GetPolls(id).Cast<PollDetailsDto>().FirstOrDefault();
+                return View(pollDetails);
+            }
         }
 
         [HttpPost]
         public IActionResult Vote(int pollId, int chosenOption)
         {
-            _pollRepository.Vote(pollId, chosenOption);
-            return RedirectToAction("Index"); 
+            if (_dbRepository != null)
+            {
+                _dbRepository.Vote(pollId, chosenOption);
+            }
+            else
+            {
+                _fileRepository.Vote(pollId, chosenOption);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
