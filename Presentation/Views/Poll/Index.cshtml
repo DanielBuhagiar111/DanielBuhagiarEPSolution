@@ -3,6 +3,21 @@
 <div class="container">
     <h2>Polls</h2>
 
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+        TempData["ErrorMessage"] = null;
+    }
+    else if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+        TempData["SuccessMessage"] = null;
+    }
+
     <div class="row">
         @foreach (var poll in Model)
         {

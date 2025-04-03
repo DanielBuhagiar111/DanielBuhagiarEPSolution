@@ -7,7 +7,7 @@
     "Option3Text": "Voleyball",
     "Option1VotesCount": 8,
     "Option2VotesCount": 5,
-    "Option3VotesCount": 2,
+    "Option3VotesCount": 3,
     "DateCreated": "2025-04-02T16:12:30.2226722+02:00"
   },
   {
@@ -16,7 +16,7 @@
     "Option1Text": "Ronaldo",
     "Option2Text": "Messi",
     "Option3Text": "Ibrahimović",
-    "Option1VotesCount": 3,
+    "Option1VotesCount": 4,
     "Option2VotesCount": 5,
     "Option3VotesCount": 1,
     "DateCreated": "2025-04-02T16:21:03.812077+02:00"
@@ -27,9 +27,20 @@
     "Option1Text": "Elden Ring",
     "Option2Text": "God of War Ragnarök",
     "Option3Text": "A Plague Tale: Requiem",
-    "Option1VotesCount": 7,
-    "Option2VotesCount": 4,
-    "Option3VotesCount": 2,
+    "Option1VotesCount": 9,
+    "Option2VotesCount": 6,
+    "Option3VotesCount": 3,
     "DateCreated": "2025-04-02T16:45:38.87649+02:00"
+  },
+  {
+    "Id": 3,
+    "Title": "Who is the tallest basketball player?",
+    "Option1Text": "Suleiman Ali Nashnush",
+    "Option2Text": "Manute Bol",
+    "Option3Text": "Gheorghe Mureșan",
+    "Option1VotesCount": 1,
+    "Option2VotesCount": 0,
+    "Option3VotesCount": 1,
+    "DateCreated": "2025-04-03T19:27:23.3692254+02:00"
   }
 ]

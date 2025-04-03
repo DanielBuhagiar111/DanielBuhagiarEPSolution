@@ -1,27 +1,35 @@
-﻿using Domain.Models;
+﻿using Domain.Interfaces;
+using Domain.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Xml;
 
 namespace DataAccess.Repositories
 {
-    public class PollFileRepository
+    public class PollFileRepository : IPollRepository
     {
-        private readonly string _filePath;
+        private readonly string _filePath = "Data/Polls.json";
+        private readonly string _userVotesFilePath = "Data/UserVotes.json";
 
-        public PollFileRepository(string filePath)
+        public PollFileRepository()
         {
-            _filePath = filePath;
         }
 
         public void CreatePoll(Poll poll)
         {
             List<Poll> polls = LoadPolls();
 
-            poll.Id = polls.Max(p => p.Id) + 1;
+            if (polls.Count > 0)
+            {
+                poll.Id = polls.Max(p => p.Id) + 1;
+            }
+            else
+            {
+                poll.Id = 1;
+            }
+
             poll.DateCreated = DateTime.Now;
 
             polls.Add(poll);
@@ -60,6 +68,36 @@ namespace DataAccess.Repositories
                     }).AsQueryable();
             }
         }
+
+        public void AddUserVote(string userId, int pollId)
+        {
+            var userVotes = LoadUserVotes();
+            userVotes.Add(new UserVote { UserId = userId, PollId = pollId });
+            SaveUserVotes(userVotes);
+        }
+
+        public bool UserHasVoted(string userId, int pollId)
+        {
+            var userVotes = LoadUserVotes();
+            return userVotes.Any(uv => uv.UserId == userId && uv.PollId == pollId);
+        }
+
+        private List<UserVote> LoadUserVotes()
+        {
+            if (!File.Exists(_userVotesFilePath))
+            {
+                return new List<UserVote>();
+            }
+            string jsonData = File.ReadAllText(_userVotesFilePath);
+            return JsonConvert.DeserializeObject<List<UserVote>>(jsonData) ?? new List<UserVote>();
+        }
+
+        private void SaveUserVotes(List<UserVote> userVotes)
+        {
+            string jsonData = JsonConvert.SerializeObject(userVotes, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(_userVotesFilePath, jsonData);
+        }
+
 
         public void Vote(int pollId, int chosenOption)
         {

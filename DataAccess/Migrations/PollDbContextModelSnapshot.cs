@@ -139,6 +139,21 @@ namespace DataAccess.Migrations
                     b.ToTable("Polls");
                 });
 
+            modelBuilder.Entity("Domain.Models.UserVote", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "PollId");
+
+                    b.HasIndex("PollId");
+
+                    b.ToTable("UserVotes");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -274,6 +289,25 @@ namespace DataAccess.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Models.UserVote", b =>
+                {
+                    b.HasOne("Domain.Models.Poll", "Poll")
+                        .WithMany()
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.CustomUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Poll");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,0 +1,44 @@
+[
+  {
+    "UserId": "dbf49288-33de-4f6f-be41-47ea4e8e0694",
+    "PollId": 2,
+    "User": null,
+    "Poll": null
+  },
+  {
+    "UserId": "2454af44-3a6c-44e0-a0e9-d59e91d1e36c",
+    "PollId": 2,
+    "User": null,
+    "Poll": null
+  },
+  {
+    "UserId": "2454af44-3a6c-44e0-a0e9-d59e91d1e36c",
+    "PollId": 1,
+    "User": null,
+    "Poll": null
+  },
+  {
+    "UserId": "2454af44-3a6c-44e0-a0e9-d59e91d1e36c",
+    "PollId": 0,
+    "User": null,
+    "Poll": null
+  },
+  {
+    "UserId": "2454af44-3a6c-44e0-a0e9-d59e91d1e36c",
+    "PollId": 3,
+    "User": null,
+    "Poll": null
+  },
+  {
+    "UserId": "86b17cab-4877-48cc-8041-626efa5a2e48",
+    "PollId": 3,
+    "User": null,
+    "Poll": null
+  },
+  {
+    "UserId": "86b17cab-4877-48cc-8041-626efa5a2e48",
+    "PollId": 2,
+    "User": null,
+    "Poll": null
+  }
+]

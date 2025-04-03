@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(PollDbContext))]
-    [Migration("20250402091504_FirstMigration")]
+    [Migration("20250403154241_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -140,6 +140,21 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Polls");
+                });
+
+            modelBuilder.Entity("Domain.Models.UserVote", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("PollId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "PollId");
+
+                    b.HasIndex("PollId");
+
+                    b.ToTable("UserVotes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -277,6 +292,25 @@ namespace DataAccess.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Models.UserVote", b =>
+                {
+                    b.HasOne("Domain.Models.Poll", "Poll")
+                        .WithMany()
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.CustomUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Poll");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

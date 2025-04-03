@@ -1,11 +1,12 @@
 ﻿using DataAccess.DataContext;
+using Domain.Interfaces;
 using Domain.Models;
 using System;
 using System.Linq;
 
 namespace DataAccess.Repositories
 {
-    public class PollRepository
+    public class PollRepository : IPollRepository 
     {
         private readonly PollDbContext _pollContext;
 
@@ -23,7 +24,6 @@ namespace DataAccess.Repositories
 
         public IQueryable<object> GetPolls(int? id = null)
         {
-            // List
             if (id == null)
             {
                 return _pollContext.Polls
@@ -56,7 +56,6 @@ namespace DataAccess.Repositories
 
         public void Vote(int pollId, int chosenOption)
         {
-            // Find the poll
             var poll = _pollContext.Polls.Find(pollId);
 
             if (poll != null)

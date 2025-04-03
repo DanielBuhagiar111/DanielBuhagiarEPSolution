@@ -20,8 +20,4 @@
     <PackageReference Include="Newtonsoft.Json" Version="8.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
 </Project>

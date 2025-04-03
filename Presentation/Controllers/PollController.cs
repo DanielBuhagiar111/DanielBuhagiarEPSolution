@@ -1,109 +1,101 @@
 ﻿using DataAccess.DataContext;
 using DataAccess.Repositories;
+using Domain.Interfaces;
 using Domain.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Presentation.Factories;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace Presentation.Controllers
 {
     public class PollController : Controller
     {
-        private readonly PollRepository _dbRepository;
-        private readonly PollFileRepository _fileRepository;
+        private readonly IPollRepository _pollRepository;
+        private readonly UserManager<CustomUser> _userManager;
+        private readonly PollDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public PollController(PollRepositoryFactory repositoryFactory, IConfiguration configuration)
+        public PollController(IPollRepository pollRepository, UserManager<CustomUser> userManager, PollDbContext context, IConfiguration configuration)
         {
-            var repository = repositoryFactory.CreateRepository();
-
-            if (repository is PollRepository dbRepository)
-            {
-                _dbRepository = dbRepository;
-            }
-            else if (repository is PollFileRepository fileRepository)
-            {
-                _fileRepository = fileRepository;
-            }
+            _pollRepository = pollRepository;
+            _userManager = userManager;
+            _context = context;
+            _configuration = configuration;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
-            if (_dbRepository != null)
-            {
-                var sortedPolls = _dbRepository.GetPolls().Cast<PollListDto>().OrderByDescending(p => p.DateCreated).ToList();
-                return View(sortedPolls);
-            }
-            else
-            {
-                var sortedPolls = _fileRepository.GetPolls().Cast<PollListDto>().OrderByDescending(p => p.DateCreated).ToList();
-                return View(sortedPolls);
-            }
+            var sortedPolls = _pollRepository.GetPolls().Cast<PollListDto>().OrderByDescending(p => p.DateCreated).ToList();
+            return View(sortedPolls);
         }
 
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
 
-        // Example of Method injection
+        // Example of method injection
+        [Authorize]
         [HttpPost]
-        public IActionResult Create(Poll poll, [FromServices] PollRepositoryFactory repositoryFactory)
+        public IActionResult Create(Poll poll, [FromServices] IPollRepository pollRepository)
         {
-            var pollRepository = repositoryFactory.CreateRepository();
-
-            if (pollRepository is PollRepository dbRepository)
-            {
-                dbRepository.CreatePoll(poll);
-            }
-            else if (pollRepository is PollFileRepository fileRepository)
-            {
-                fileRepository.CreatePoll(poll);
-            }
-
+            pollRepository.CreatePoll(poll);
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public IActionResult Details(int id)
         {
-            if (_dbRepository != null)
-            {
-                var pollDetails = _dbRepository.GetPolls(id).Cast<PollDetailsDto>().FirstOrDefault();
-                return View(pollDetails);
-            }
-            else
-            {
-                var pollDetails = _fileRepository.GetPolls(id).Cast<PollDetailsDto>().FirstOrDefault();
-                return View(pollDetails);
-            }
+            var pollDetails = _pollRepository.GetPolls(id).Cast<PollDetailsDto>().FirstOrDefault();
+            return View(pollDetails);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Vote(int pollId, int chosenOption)
         {
-            if (_dbRepository != null)
+            var userId = _userManager.GetUserId(User);
+
+            if (_configuration["RepositoryType"] == "Database")
             {
-                _dbRepository.Vote(pollId, chosenOption);
+                if (!_context.UserVotes.Any(uv => uv.UserId == userId && uv.PollId == pollId))
+                {
+                    _pollRepository.Vote(pollId, chosenOption);
+                    _context.UserVotes.Add(new UserVote { UserId = userId, PollId = pollId });
+                    _context.SaveChanges();
+                    TempData["SuccessMessage"] = "Vote Submited";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "You have already voted for this poll. Vote not Submited";
+                }
             }
             else
             {
-                _fileRepository.Vote(pollId, chosenOption);
-            }
+                var fileRepo = (PollFileRepository)_pollRepository; 
 
+                if (!fileRepo.UserHasVoted(userId, pollId))
+                {
+                    _pollRepository.Vote(pollId, chosenOption);
+                    fileRepo.AddUserVote(userId, pollId);
+                    TempData["SuccessMessage"] = "Vote Submited";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "You have already voted for this poll. Vote not Submited";
+                }
+            }
             return RedirectToAction("Index");
         }
 
         public IActionResult Results()
         {
-            if (_dbRepository != null)
-            {
-                var sortedPolls = _dbRepository.GetPolls(-1).Cast<Poll>().OrderByDescending(p => p.DateCreated).ToList();
-                return View(sortedPolls);
-            }
-            else
-            {
-                var sortedPolls = _fileRepository.GetPolls(-1).Cast<Poll>().OrderByDescending(p => p.DateCreated).ToList();
-                return View(sortedPolls);
-            }
+            var sortedPolls = _pollRepository.GetPolls(-1).Cast<Poll>().OrderByDescending(p => p.DateCreated).ToList();
+            return View(sortedPolls);
         }
     }
 }
