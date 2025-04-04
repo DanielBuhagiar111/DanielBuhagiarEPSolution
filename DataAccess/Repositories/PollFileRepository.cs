@@ -69,6 +69,33 @@ namespace DataAccess.Repositories
             }
         }
 
+        public void Vote(int pollId, int chosenOption)
+        {
+            List<Poll> polls = LoadPolls();
+
+            Poll poll = polls.FirstOrDefault(p => p.Id == pollId);
+
+            if (poll != null)
+            {
+                switch (chosenOption)
+                {
+                    case 1:
+                        poll.Option1VotesCount++;
+                        break;
+                    case 2:
+                        poll.Option2VotesCount++;
+                        break;
+                    case 3:
+                        poll.Option3VotesCount++;
+                        break;
+                    default:
+                        throw new ArgumentException("Invalid option number.");
+                }
+
+                SavePolls(polls);
+            }
+        }
+
         public void AddUserVote(string userId, int pollId)
         {
             var userVotes = LoadUserVotes();
@@ -96,34 +123,6 @@ namespace DataAccess.Repositories
         {
             string jsonData = JsonConvert.SerializeObject(userVotes, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(_userVotesFilePath, jsonData);
-        }
-
-
-        public void Vote(int pollId, int chosenOption)
-        {
-            List<Poll> polls = LoadPolls();
-
-            Poll poll = polls.FirstOrDefault(p => p.Id == pollId);
-
-            if (poll != null)
-            {
-                switch (chosenOption)
-                {
-                    case 1:
-                        poll.Option1VotesCount++;
-                        break;
-                    case 2:
-                        poll.Option2VotesCount++;
-                        break;
-                    case 3:
-                        poll.Option3VotesCount++;
-                        break;
-                    default:
-                        throw new ArgumentException("Invalid option number.");
-                }
-
-                SavePolls(polls);
-            }
         }
 
         private List<Poll> LoadPolls()

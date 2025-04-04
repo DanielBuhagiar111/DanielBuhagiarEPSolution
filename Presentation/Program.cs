@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using DataAccess.DataContext;
 using DataAccess.Repositories;
 using Domain.Interfaces;
-using Domain.Models; 
+using Domain.Models;
+using Presentation.ActionFilters;
 
 namespace SWD62ADanielBuhagiarEPHA
 {
@@ -39,6 +40,8 @@ namespace SWD62ADanielBuhagiarEPHA
             {
                 builder.Services.AddScoped<IPollRepository, PollRepository>();
             }
+
+            builder.Services.AddScoped<VotesActionFilter>();
 
             var app = builder.Build();
 

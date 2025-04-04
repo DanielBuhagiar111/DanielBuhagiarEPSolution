@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|d:\\daniel\\.mcast stuffs\\level 6\\2nd year\\enterprise programming\\danielbuhagiarepsolution\\presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|solutionrelative:presentation\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|d:\\daniel\\.mcast stuffs\\level 6\\2nd year\\enterprise programming\\danielbuhagiarepsolution\\presentation\\controllers\\pollcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{49D30A74-CDB6-4F4C-BDB6-573848844012}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\pollcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,21 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\appsettings.json",
-              "RelativeDocumentMoniker": "Presentation\\appsettings.json",
-              "ToolTip": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\appsettings.json*",
-              "RelativeToolTip": "Presentation\\appsettings.json*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-03T17:25:45.025Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{26341fe2-71dd-46fd-bb1b-2e51a92a0d64}"
@@ -44,19 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PollController.cs",
-              "DocumentMoniker": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Controllers\\PollController.cs",
-              "RelativeDocumentMoniker": "Presentation\\Controllers\\PollController.cs",
-              "ToolTip": "D:\\Daniel\\.Mcast stuffs\\Level 6\\2nd year\\Enterprise Programming\\DanielBuhagiarEPSolution\\Presentation\\Controllers\\PollController.cs",
-              "RelativeToolTip": "Presentation\\Controllers\\PollController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowEgAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T17:14:28.754Z",
-              "EditorCaption": ""
             }
           ]
         }

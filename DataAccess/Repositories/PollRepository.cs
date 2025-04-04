@@ -10,6 +10,7 @@ namespace DataAccess.Repositories
     {
         private readonly PollDbContext _pollContext;
 
+        // example of constructor injection
         public PollRepository(PollDbContext pollContext)
         {
             _pollContext = pollContext;

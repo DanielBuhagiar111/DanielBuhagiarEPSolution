@@ -1,44 +1,34 @@
 [
   {
-    "UserId": "dbf49288-33de-4f6f-be41-47ea4e8e0694",
-    "PollId": 2,
-    "User": null,
-    "Poll": null
+    "UserId": "a34a8f58-d056-406f-b5be-be4c7a4e0a0f",
+    "PollId": 1
   },
   {
-    "UserId": "2454af44-3a6c-44e0-a0e9-d59e91d1e36c",
-    "PollId": 2,
-    "User": null,
-    "Poll": null
+    "UserId": "a34a8f58-d056-406f-b5be-be4c7a4e0a0f",
+    "PollId": 2
   },
   {
-    "UserId": "2454af44-3a6c-44e0-a0e9-d59e91d1e36c",
-    "PollId": 1,
-    "User": null,
-    "Poll": null
+    "UserId": "8a89056a-1fad-4cd9-a3a3-6d9138533d52",
+    "PollId": 2
   },
   {
-    "UserId": "2454af44-3a6c-44e0-a0e9-d59e91d1e36c",
-    "PollId": 0,
-    "User": null,
-    "Poll": null
+    "UserId": "8a89056a-1fad-4cd9-a3a3-6d9138533d52",
+    "PollId": 1
   },
   {
-    "UserId": "2454af44-3a6c-44e0-a0e9-d59e91d1e36c",
-    "PollId": 3,
-    "User": null,
-    "Poll": null
+    "UserId": "4647d889-e812-49b8-949b-8c4e86015b48",
+    "PollId": 2
   },
   {
-    "UserId": "86b17cab-4877-48cc-8041-626efa5a2e48",
-    "PollId": 3,
-    "User": null,
-    "Poll": null
+    "UserId": "4647d889-e812-49b8-949b-8c4e86015b48",
+    "PollId": 1
   },
   {
-    "UserId": "86b17cab-4877-48cc-8041-626efa5a2e48",
-    "PollId": 2,
-    "User": null,
-    "Poll": null
+    "UserId": "816a1b54-7951-48fb-bbb9-848e3ffde87a",
+    "PollId": 2
+  },
+  {
+    "UserId": "816a1b54-7951-48fb-bbb9-848e3ffde87a",
+    "PollId": 1
   }
 ]

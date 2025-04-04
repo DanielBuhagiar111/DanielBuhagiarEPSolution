@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Presentation.ActionFilters;
 using System.Linq;
 
 namespace Presentation.Controllers
@@ -56,39 +57,25 @@ namespace Presentation.Controllers
 
         [Authorize]
         [HttpPost]
+        [ServiceFilter(typeof(VotesActionFilter))] 
         public IActionResult Vote(int pollId, int chosenOption)
         {
             var userId = _userManager.GetUserId(User);
 
+            _pollRepository.Vote(pollId, chosenOption);
+
             if (_configuration["RepositoryType"] == "Database")
             {
-                if (!_context.UserVotes.Any(uv => uv.UserId == userId && uv.PollId == pollId))
-                {
-                    _pollRepository.Vote(pollId, chosenOption);
-                    _context.UserVotes.Add(new UserVote { UserId = userId, PollId = pollId });
-                    _context.SaveChanges();
-                    TempData["SuccessMessage"] = "Vote Submited";
-                }
-                else
-                {
-                    TempData["ErrorMessage"] = "You have already voted for this poll. Vote not Submited";
-                }
+                _context.UserVotes.Add(new UserVote { UserId = userId, PollId = pollId });
+                _context.SaveChanges();
             }
             else
             {
-                var fileRepo = (PollFileRepository)_pollRepository; 
-
-                if (!fileRepo.UserHasVoted(userId, pollId))
-                {
-                    _pollRepository.Vote(pollId, chosenOption);
-                    fileRepo.AddUserVote(userId, pollId);
-                    TempData["SuccessMessage"] = "Vote Submited";
-                }
-                else
-                {
-                    TempData["ErrorMessage"] = "You have already voted for this poll. Vote not Submited";
-                }
+                var fileRepo = (PollFileRepository)_pollRepository;
+                fileRepo.AddUserVote(userId, pollId);
             }
+
+            TempData["SuccessMessage"] = "Vote Submitted";
             return RedirectToAction("Index");
         }
 

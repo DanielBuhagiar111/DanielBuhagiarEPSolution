@@ -1,46 +1,24 @@
 [
   {
-    "Id": 0,
-    "Title": "What is your favorite Sport?",
-    "Option1Text": "Football",
-    "Option2Text": "Basketball",
-    "Option3Text": "Voleyball",
-    "Option1VotesCount": 8,
-    "Option2VotesCount": 5,
-    "Option3VotesCount": 3,
-    "DateCreated": "2025-04-02T16:12:30.2226722+02:00"
-  },
-  {
     "Id": 1,
-    "Title": "Who is the Football Goat?",
-    "Option1Text": "Ronaldo",
-    "Option2Text": "Messi",
-    "Option3Text": "Ibrahimović",
-    "Option1VotesCount": 4,
-    "Option2VotesCount": 5,
+    "Title": "Which is the best color?",
+    "Option1Text": "Red",
+    "Option2Text": "Green",
+    "Option3Text": "Blue",
+    "Option1VotesCount": 1,
+    "Option2VotesCount": 2,
     "Option3VotesCount": 1,
-    "DateCreated": "2025-04-02T16:21:03.812077+02:00"
+    "DateCreated": "2025-04-04T16:27:56.164921+02:00"
   },
   {
     "Id": 2,
-    "Title": "What is the best Video Game of 2022?",
-    "Option1Text": "Elden Ring",
-    "Option2Text": "God of War Ragnarök",
-    "Option3Text": "A Plague Tale: Requiem",
-    "Option1VotesCount": 9,
-    "Option2VotesCount": 6,
-    "Option3VotesCount": 3,
-    "DateCreated": "2025-04-02T16:45:38.87649+02:00"
-  },
-  {
-    "Id": 3,
-    "Title": "Who is the tallest basketball player?",
-    "Option1Text": "Suleiman Ali Nashnush",
-    "Option2Text": "Manute Bol",
-    "Option3Text": "Gheorghe Mureșan",
-    "Option1VotesCount": 1,
-    "Option2VotesCount": 0,
+    "Title": "Which is the best Chocolate?",
+    "Option1Text": "Dairy Milk",
+    "Option2Text": "Milka",
+    "Option3Text": "Kitkat",
+    "Option1VotesCount": 2,
+    "Option2VotesCount": 1,
     "Option3VotesCount": 1,
-    "DateCreated": "2025-04-03T19:27:23.3692254+02:00"
+    "DateCreated": "2025-04-04T16:28:25.7120831+02:00"
   }
 ]

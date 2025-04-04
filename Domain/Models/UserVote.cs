@@ -10,8 +10,5 @@ namespace Domain.Models
 
         [ForeignKey("Poll")]
         public int PollId { get; set; }
-
-        public virtual CustomUser User { get; set; } 
-        public virtual Poll Poll { get; set; } 
     }
 }
